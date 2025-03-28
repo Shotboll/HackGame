@@ -4,7 +4,8 @@ public class PlayerComponent : MonoBehaviour
 {
     public float speed;
     public float jumpForce;
-    private float moveInput;
+    private float moveInputX;
+    private float moveInputY;
 
     private Rigidbody2D rb;
 
@@ -22,13 +23,15 @@ public class PlayerComponent : MonoBehaviour
 
     private void FixedUpdate()
     {
-        moveInput = Input.GetAxis("Horizontal");
-        rb.linearVelocity = new Vector2(moveInput * speed, rb.linearVelocity.y);
-        if(!facingRight && moveInput > 0)
+        moveInputX = Input.GetAxis("Horizontal");
+        moveInputY = Input.GetAxis("Vertical");
+        rb.linearVelocity = new Vector2(moveInputY * speed, rb.linearVelocity.y);
+        rb.linearVelocity = new Vector2(moveInputX * speed, rb.linearVelocity.x);
+        if(!facingRight && moveInputX > 0)
         {
             Flip();
         }
-        else if(facingRight && moveInput < 0)
+        else if(facingRight && moveInputX < 0)
         {
             Flip();
         }
@@ -36,11 +39,11 @@ public class PlayerComponent : MonoBehaviour
 
     private void Update()
     {
-        isGrounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGround);
-        if(isGrounded && Input.GetKeyDown(KeyCode.Space))
-        {
-            rb.linearVelocity = Vector2.up * jumpForce;
-        }
+        //isGrounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGround);
+        //if(Input.GetKeyDown(KeyCode.W))
+        //{
+        //    rb.linearVelocity = new Vector2(moveInputY) /*Vector2.up * speed*/;
+        //}
     }
 
     void Flip()
