@@ -1,0 +1,3 @@
+repository "HackGame/HackGame@10170958755959@cloud"
+  path "/"
+    smartbranch "/main"
