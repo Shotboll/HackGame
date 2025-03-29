@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c529eff7ed31625468a05b51273f072f
+guid: f06ec0d68cd13914e9d9ee54b1dd2312
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1824744251190136442
-    second: inventar_0
+      213: -8700629006946021679
+    second: "\u0418\u043D\u0442\u0435\u0440\u0444\u0438\u0306\u0441 \u041A\u0440\u0430\u0444\u0442_0"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: inventar_0
+      name: "\u0418\u043D\u0442\u0435\u0440\u0444\u0438\u0306\u0441 \u041A\u0440\u0430\u0444\u0442_0"
       rect:
         serializedVersion: 2
-        x: 0
-        y: 4
-        width: 320
-        height: 56
+        x: 47
+        y: 15
+        width: 226
+        height: 98
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a7ecf128a3bc25910800000000000000
-      internalID: 1824744251190136442
+      spriteID: 1dec58e1408214780800000000000000
+      internalID: -8700629006946021679
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      inventar_0: 1824744251190136442
+      "\u0418\u043D\u0442\u0435\u0440\u0444\u0438\u0306\u0441 \u041A\u0440\u0430\u0444\u0442_0": -8700629006946021679
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
