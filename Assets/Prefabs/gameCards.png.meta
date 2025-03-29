@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: fa53fee1ccd961741ba5cb3b41ddcafa
+guid: f62ec36a883c85a4b955c3817292ad1c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1958228345179835681
-    second: okno_0
+      213: -698904855912756113
+    second: gameCards_0
+  - first:
+      213: -7494458928680435816
+    second: gameCards_1
+  - first:
+      213: 9110934099789872410
+    second: gameCards_2
+  - first:
+      213: -3261584695891986019
+    second: gameCards_3
+  - first:
+      213: -2111825656667246323
+    second: gameCards_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +125,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: okno_0
+      name: gameCards_0
       rect:
         serializedVersion: 2
-        x: 47
-        y: 15
-        width: 226
-        height: 98
+        x: 96
+        y: 68
+        width: 25
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +140,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 12d8b870e460d2b10800000000000000
-      internalID: 1958228345179835681
+      spriteID: f6c468b8cbdfc46f0800000000000000
+      internalID: -698904855912756113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gameCards_1
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 68
+        width: 25
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89f7f3ccf455ef790800000000000000
+      internalID: -7494458928680435816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gameCards_2
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 68
+        width: 25
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1df7fdba4a807e70800000000000000
+      internalID: 9110934099789872410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gameCards_3
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 69
+        width: 25
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d99f18ceff58cb2d0800000000000000
+      internalID: -3261584695891986019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gameCards_4
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 69
+        width: 25
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d01fac211c941b2e0800000000000000
+      internalID: -2111825656667246323
       vertices: []
       indices: 
       edges: []
@@ -148,7 +248,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      okno_0: 1958228345179835681
+      gameCards_0: -698904855912756113
+      gameCards_1: -7494458928680435816
+      gameCards_2: 9110934099789872410
+      gameCards_3: -3261584695891986019
+      gameCards_4: -2111825656667246323
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
