@@ -36,6 +36,8 @@ public class MovingPuzzle : MonoBehaviour
             finish = true;
 
             GetComponent<Collider2D>().enabled = false;
+
+            PuzzleManager.AddElement();
         }
     }
 
