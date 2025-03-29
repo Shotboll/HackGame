@@ -34,6 +34,8 @@ public class MovingPuzzle : MonoBehaviour
         {
             this.transform.position = new Vector2(form.transform.position.x, form.transform.position.y);
             finish = true;
+
+            GetComponent<Collider2D>().enabled = false;
         }
     }
 
