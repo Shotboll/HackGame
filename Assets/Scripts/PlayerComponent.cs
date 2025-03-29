@@ -37,15 +37,6 @@ public class PlayerComponent : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        //isGrounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGround);
-        //if(Input.GetKeyDown(KeyCode.W))
-        //{
-        //    rb.linearVelocity = new Vector2(moveInputY) /*Vector2.up * speed*/;
-        //}
-    }
-
     void Flip()
     {
         facingRight = !facingRight;
