@@ -2,6 +2,7 @@ using NUnit.Framework;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class CardsController : MonoBehaviour
 {
@@ -85,6 +86,8 @@ public class CardsController : MonoBehaviour
                     .Chain(PrimeTween.Tween.Scale(gridTransform, Vector3.one * 1.2f, 0.2f, ease: PrimeTween.Ease.OutBack))
                     .Chain(PrimeTween.Tween.Scale(gridTransform, Vector3.one, 0.1f));
                 winAnim.SetBool("openWindow", true);
+                
+                SceneManager.LoadScene(0);
             }
         }
         else

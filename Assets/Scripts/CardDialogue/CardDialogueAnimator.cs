@@ -2,15 +2,16 @@ using UnityEngine;
 
 public class CardDialogueAnimator : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public Animator cardAnim;
+    public CardDialogueManager dm;
 
-    // Update is called once per frame
-    void Update()
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        cardAnim.SetBool("openCard", true);
+    }
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        cardAnim.SetBool("openCard", false);
+        dm.EndCraft();
     }
 }

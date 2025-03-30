@@ -1,16 +1,18 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CardDialogueManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public Animator gachaAnim;
+    public int levelToLoad;
+
+    public void OpenGame()
     {
-        
+        SceneManager.LoadScene(levelToLoad);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void EndCraft()
     {
-        
+        gachaAnim.SetBool("openCard", false);
     }
 }
