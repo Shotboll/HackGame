@@ -16,9 +16,12 @@ public class PlayerComponent : MonoBehaviour
     public float checkRadius;
     public LayerMask whatIsGround;
 
+    private Animator anim;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
@@ -34,6 +37,14 @@ public class PlayerComponent : MonoBehaviour
         else if(facingRight && moveInputX < 0)
         {
             Flip();
+        }
+        if(moveInputX == 0 && moveInputY == 0)
+        {
+            anim.SetBool("isWalk", false);
+        }
+        else
+        {
+            anim.SetBool("isWalk", true);
         }
     }
 
