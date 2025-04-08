@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerComponent : MonoBehaviour
 {
@@ -6,19 +7,35 @@ public class PlayerComponent : MonoBehaviour
     public float jumpForce;
     private float moveInputX;
     private float moveInputY;
+    public int colTickects;
+    public int colPotions;
+
 
     private Rigidbody2D rb;
 
     private bool facingRight = true;
 
-    private bool isGrounded;
-    public Transform feetPos;
-    public float checkRadius;
-    public LayerMask whatIsGround;
+    private Animator anim;
+    public Animator animEnd;
+
+    private Text tickets;
+
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        tickets = GameObject.FindGameObjectWithTag("Tickets").GetComponent<Text>();
+        tickets.text = colTickects.ToString();
+    }
+
+    private void Update()
+    {
+        tickets.text = colTickects.ToString();
+        if(colPotions == 5)
+        {
+            animEnd.SetBool("endButOpen", true);
+        }
     }
 
     private void FixedUpdate()
@@ -35,15 +52,14 @@ public class PlayerComponent : MonoBehaviour
         {
             Flip();
         }
-    }
-
-    private void Update()
-    {
-        //isGrounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGround);
-        //if(Input.GetKeyDown(KeyCode.W))
-        //{
-        //    rb.linearVelocity = new Vector2(moveInputY) /*Vector2.up * speed*/;
-        //}
+        if(moveInputX == 0 && moveInputY == 0)
+        {
+            anim.SetBool("isWalk", false);
+        }
+        else
+        {
+            anim.SetBool("isWalk", true);
+        }
     }
 
     void Flip()
