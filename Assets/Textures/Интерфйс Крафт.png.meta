@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: fa53fee1ccd961741ba5cb3b41ddcafa
+guid: f06ec0d68cd13914e9d9ee54b1dd2312
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1958228345179835681
-    second: okno_0
+      213: -8700629006946021679
+    second: "\u0418\u043D\u0442\u0435\u0440\u0444\u0438\u0306\u0441 \u041A\u0440\u0430\u0444\u0442_0"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: okno_0
+      name: "\u0418\u043D\u0442\u0435\u0440\u0444\u0438\u0306\u0441 \u041A\u0440\u0430\u0444\u0442_0"
       rect:
         serializedVersion: 2
         x: 47
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 12d8b870e460d2b10800000000000000
-      internalID: 1958228345179835681
+      spriteID: 1dec58e1408214780800000000000000
+      internalID: -8700629006946021679
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      okno_0: 1958228345179835681
+      "\u0418\u043D\u0442\u0435\u0440\u0444\u0438\u0306\u0441 \u041A\u0440\u0430\u0444\u0442_0": -8700629006946021679
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

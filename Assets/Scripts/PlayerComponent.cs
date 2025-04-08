@@ -21,6 +21,8 @@ public class PlayerComponent : MonoBehaviour
     private Text tickets;
 
 
+    private Animator anim;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();

@@ -36,7 +36,7 @@ public class CardsController : MonoBehaviour
         for (int i = 0; i < sprites.Length; i++)
         {
 
-            // делаем пару из двух карт
+            // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
 
             spritePairs.Add(sprites[i]);
             spritePairs.Add(sprites[i]);
@@ -81,11 +81,11 @@ public class CardsController : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         if (a.iconSprite == b.iconSprite)
         {
-            // Победа и считывание открытых пар
+            // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ
             matchCounts++;
             if(matchCounts >= spritePairs.Count/2)
             {
-                // игра пройдена
+                // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 PrimeTween.Sequence.Create()
                     .Chain(PrimeTween.Tween.Scale(gridTransform, Vector3.one * 1.2f, 0.2f, ease: PrimeTween.Ease.OutBack))
                     .Chain(PrimeTween.Tween.Scale(gridTransform, Vector3.one, 0.1f));
@@ -98,7 +98,7 @@ public class CardsController : MonoBehaviour
         }
         else
         {
-            // Если выбрали другую то заново
+            // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
             a.Hide();
             b.Hide();
         }
@@ -110,7 +110,7 @@ public class CardsController : MonoBehaviour
         {
             int randomIndex = Random.Range(0, i + 1);
 
-            // делаем карты рандомными с помощью рандом индекса
+            // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
             Sprite temp = spriteList[i];
             spriteList[i] = spriteList[randomIndex];
@@ -120,18 +120,18 @@ public class CardsController : MonoBehaviour
 
     public void ResetGame()
     {
-        // Удаляем все существующие карты
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         foreach (Transform child in gridTransform)
         {
             Destroy(child.gameObject);
         }
 
-        // Сбрасываем переменные состояния
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         firstSelected = null;
         secondSelected = null;
         matchCounts = 0;
 
-        // Пересоздаём карты
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         PrepareSprites();
         CreateCards();
     }
