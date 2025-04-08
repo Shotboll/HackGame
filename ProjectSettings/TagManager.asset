@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Gacha
+  - Craft
+  - Tickets
+  - Potions
   layers:
   - Default
   - TransparentFX
@@ -40,6 +44,12 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: BG
+    uniqueID: 3099890483
+    locked: 0
+  - name: Player
+    uniqueID: 624990211
     locked: 0
   m_RenderingLayers:
   - Default

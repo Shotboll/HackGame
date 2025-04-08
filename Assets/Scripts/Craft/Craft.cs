@@ -5,6 +5,7 @@ public class Craft : MonoBehaviour
 {
 
     public string[] craftIng;
+    public Animator[] potionsAnims = new Animator[5];
     private string[] recipes = new string[] { "Coal+crystal","brown","flower+Uranus","green","gold+redDust","orange","Uranus+gold","yellow","gold+flower","pink"};
 
     private GameObject craft;
