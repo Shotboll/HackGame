@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ramka_fon_0: -905967407509443387
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
