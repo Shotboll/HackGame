@@ -8,6 +8,7 @@ TagManager:
   - Craft
   - Tickets
   - Potions
+  - Game2
   layers:
   - Default
   - TransparentFX

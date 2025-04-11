@@ -26,7 +26,7 @@ public class CardsController : MonoBehaviour
     {
         PrepareSprites();
         CreateCards();
-        pc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerComponent>(); ;
+        pc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerComponent>();
     }
 
     private void PrepareSprites()
