@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 01fbbd5c53fc5e040963b566a7dd8d22
+  - enabled: 1
     path: Assets/Scenes/Pensioner's Chaotic Lab.unity
     guid: d8f849aed9647e64585d8db5dec46085
   m_configObjects:
