@@ -20,7 +20,7 @@ public class Craft : MonoBehaviour
     {
         craft = GameObject.FindGameObjectWithTag("Craft");
         potions = GameObject.FindGameObjectWithTag("Potions");
-        pc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerComponent>(); ;
+        pc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerComponent>();
     }
 
     public void CraftPotion()
@@ -45,15 +45,16 @@ public class Craft : MonoBehaviour
             string recipe = recipes[i];
             if (recipe.Contains(craftIng[0]) && recipe.Contains(craftIng[1]))
             {
-                potion = recipes[i + 1];
+                potion = recipes[i + 1] + "Potion";
                 recipes[i + 1] = "collected";
             }
         }
 
         for (int i = 0; i < potions.transform.childCount; i++)
         {
-            if (potions.transform.GetChild(i).transform.name.Contains(potion))
+            if (!pc.savePotions.Contains(potion) && potion != "collected" && potion != "null" && potions.transform.GetChild(i).transform.name == potion)
             {
+                pc.savePotions.Add(potion);
                 potions.transform.GetChild(i).transform.gameObject.SetActive(true);
                 pc.colPotions++;
                 for (int j = 0; j < craft.transform.childCount; j++)

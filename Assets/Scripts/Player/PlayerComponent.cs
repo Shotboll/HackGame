@@ -1,3 +1,5 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +12,12 @@ public class PlayerComponent : MonoBehaviour
     public int colTickects;
     public int colPotions;
 
+    private Inventory inventory;
+
+    public List<string> savePotions;
+    public List<string> saveInventory;
+
+    private GameObject potions;
 
     private Rigidbody2D rb;
 
@@ -26,6 +34,9 @@ public class PlayerComponent : MonoBehaviour
         anim = GetComponent<Animator>();
         tickets = GameObject.FindGameObjectWithTag("Tickets").GetComponent<Text>();
         tickets.text = colTickects.ToString();
+        inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
+        potions = GameObject.FindGameObjectWithTag("Potions");
+        LoadPlayer();
     }
 
     private void Update()
@@ -67,5 +78,36 @@ public class PlayerComponent : MonoBehaviour
         Vector3 Scaler = transform.localScale;
         Scaler.x *= -1;
         transform.localScale = Scaler;
+    }
+
+    public void SavePlayer()
+    {
+        for (int i = 0; i < inventory.slots.Length; i++)
+        {
+            if (inventory.isFull[i])
+            {
+                saveInventory.Add(inventory.slots[i].transform.GetChild(0).transform.GetChild(0).transform.name);
+            }
+        }
+        SaveSystem.SavePlayer(this);
+    }
+
+    public void LoadPlayer()
+    {
+        PlayerData data = SaveSystem.LoadPlayer();
+        if(data != null)
+        {
+            colTickects = data.colTickects;
+            savePotions = data.potions;
+            saveInventory = data.inventory;
+
+            for (int i = 0; i < potions.transform.childCount; i++)
+            {
+                if (savePotions.Contains(potions.transform.GetChild(i).transform.name))
+                {
+                    potions.transform.GetChild(i).transform.gameObject.SetActive(true);
+                }
+            }
+        }
     }
 }
