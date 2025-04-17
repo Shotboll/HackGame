@@ -28,6 +28,7 @@ public class PlayerComponent : MonoBehaviour
 
     private Text tickets;
 
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -82,6 +83,7 @@ public class PlayerComponent : MonoBehaviour
 
     public void SavePlayer()
     {
+        saveInventory.Clear();
         for (int i = 0; i < inventory.slots.Length; i++)
         {
             if (inventory.isFull[i])
@@ -106,6 +108,18 @@ public class PlayerComponent : MonoBehaviour
                 if (savePotions.Contains(potions.transform.GetChild(i).transform.name))
                 {
                     potions.transform.GetChild(i).transform.gameObject.SetActive(true);
+                }
+            }
+
+            GameObject slotButton;
+
+            if(saveInventory.Count != 0)
+            {
+                for (int i = 0; i < saveInventory.Count; i++)
+                {
+                    slotButton = Resources.Load(saveInventory[i].Replace("(Clone)",""), typeof(GameObject)) as GameObject;
+                    inventory.isFull[i] = true;
+                    Instantiate(slotButton, inventory.slots[i].transform.GetChild(0).transform);
                 }
             }
         }
