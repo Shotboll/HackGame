@@ -9,6 +9,7 @@ TagManager:
   - Tickets
   - Potions
   - Game2
+  - StartComics
   layers:
   - Default
   - TransparentFX

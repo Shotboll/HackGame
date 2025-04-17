@@ -8,6 +8,7 @@ public class UIItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHa
     private CanvasGroup _canvasGroup;
     private RectTransform _rectTransform;
     private Inventory inventory;
+    private int index;
 
     private void Start()
     {
@@ -18,6 +19,7 @@ public class UIItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHa
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        index = Convert.ToInt32(transform.name[transform.name.Length - 1]) - 48;
         var slotTransform = _rectTransform.parent;
         slotTransform.SetAsLastSibling();
         _canvasGroup.blocksRaycasts = false;
@@ -31,12 +33,7 @@ public class UIItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHa
     public void OnEndDrag(PointerEventData eventData)
     {
         transform.localPosition = Vector3.zero;
-        try
-        {
-            int index = Convert.ToInt32(transform.name[transform.name.Length - 1]) - 48;
-            inventory.isFull[index - 1] = false;
-        }
-        catch { }
+        inventory.isFull[index - 1] = false;
         _canvasGroup.blocksRaycasts = true;        
     }
 }
