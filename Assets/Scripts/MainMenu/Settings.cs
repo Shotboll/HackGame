@@ -48,21 +48,35 @@ public class Settings : MonoBehaviour
 
     public void SaveSettings()
     {
+        // Сохранение настроек разрешение и полноэкранного режима
         PlayerPrefs.SetInt("ResolutionPreference", resolutionDropdown.value);
-        PlayerPrefs.SetInt("FullscreenPreference", resolutionDropdown.value);
+        PlayerPrefs.SetInt("FullscreenPreference", System.Convert.ToInt32(Screen.fullScreen));
+
+        // Сохранение настроек громкости
+        PlayerPrefs.SetFloat("MasterVolume", masterVol.value);
+        PlayerPrefs.SetFloat("MusicVolume", musicVol.value);
+        PlayerPrefs.SetFloat("SFXVolume", sfxVol.value);
+
+        PlayerPrefs.Save();
     }
 
     public void LoadSettings(int currentResolutionIndex)
     {
-        if (PlayerPrefs.HasKey("ResolutionPreference"))
-            resolutionDropdown.value = PlayerPrefs.GetInt("ResolutionPreference");
-        else
-            resolutionDropdown.value = currentResolutionIndex;
+        // Загрузка настроек разрешения
+        resolutionDropdown.value = PlayerPrefs.GetInt("ResolutionPreference", currentResolutionIndex);
 
-        if (PlayerPrefs.HasKey("FullscreenPreference"))
-            Screen.fullScreen = System.Convert.ToBoolean(PlayerPrefs.GetInt("FullscreenPreference"));
-        else
-            Screen.fullScreen = true;
+        // Загрузка полноэкранного режима
+        Screen.fullScreen = System.Convert.ToBoolean(PlayerPrefs.GetInt("FullscreenPreference", System.Convert.ToInt32(Screen.fullScreen)));
+
+        // Загрузка значений громкости
+        masterVol.value = PlayerPrefs.GetFloat("MasterVolume", masterVol.value);
+        musicVol.value = PlayerPrefs.GetFloat("MusicVolume", musicVol.value);
+        sfxVol.value = PlayerPrefs.GetFloat("SFXVolume", sfxVol.value);
+
+        // Применяем настройки громкости
+        ChangeMasterVolume();
+        ChangeMusicVolume();
+        ChangeSFXVolume();
     }
 
     public void ChangeMasterVolume()
@@ -79,4 +93,6 @@ public class Settings : MonoBehaviour
     {
         mainAudioMixer.SetFloat("SFXVol", sfxVol.value);
     }
+
+
 }
