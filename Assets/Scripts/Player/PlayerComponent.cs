@@ -5,6 +5,11 @@ using UnityEngine.UI;
 
 public class PlayerComponent : MonoBehaviour
 {
+    [Header("Footsteps")]
+    [SerializeField] private float stepInterval = 0.5f; // Интервал между шагами
+    private float stepTimer;
+    private bool isMoving;
+
     public float speed;
     public float jumpForce;
     private float moveInputX;
@@ -43,9 +48,29 @@ public class PlayerComponent : MonoBehaviour
     private void Update()
     {
         tickets.text = colTickects.ToString();
-        if(colPotions == 5)
+        if (colPotions == 5)
         {
             animEnd.SetBool("endButOpen", true);
+        }
+
+        // 1. Определяем движение
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+        isMoving = (Mathf.Abs(horizontal) > 0.1f || Mathf.Abs(vertical) > 0.1f);
+
+        // 2. Воспроизводим шаги
+        if (isMoving)
+        {
+            stepTimer -= Time.deltaTime;
+            if (stepTimer <= 0)
+            {
+                PlayFootstep();
+                stepTimer = stepInterval;
+            }
+        }
+        else
+        {
+            stepTimer = 0; // Сброс таймера при остановке
         }
     }
 
@@ -55,15 +80,15 @@ public class PlayerComponent : MonoBehaviour
         moveInputY = Input.GetAxis("Vertical");
         rb.linearVelocity = new Vector2(moveInputY * speed, rb.linearVelocity.y);
         rb.linearVelocity = new Vector2(moveInputX * speed, rb.linearVelocity.x);
-        if(!facingRight && moveInputX > 0)
+        if (!facingRight && moveInputX > 0)
         {
             Flip();
         }
-        else if(facingRight && moveInputX < 0)
+        else if (facingRight && moveInputX < 0)
         {
             Flip();
         }
-        if(moveInputX == 0 && moveInputY == 0)
+        if (moveInputX == 0 && moveInputY == 0)
         {
             anim.SetBool("isWalk", false);
         }
@@ -97,7 +122,7 @@ public class PlayerComponent : MonoBehaviour
     public void LoadPlayer()
     {
         PlayerData data = SaveSystem.LoadPlayer();
-        if(data != null)
+        if (data != null)
         {
             colTickects = data.colTickects;
             savePotions = data.potions;
@@ -113,15 +138,20 @@ public class PlayerComponent : MonoBehaviour
 
             GameObject slotButton;
 
-            if(saveInventory.Count != 0)
+            if (saveInventory.Count != 0)
             {
                 for (int i = 0; i < saveInventory.Count; i++)
                 {
-                    slotButton = Resources.Load(saveInventory[i].Replace("(Clone)",""), typeof(GameObject)) as GameObject;
+                    slotButton = Resources.Load(saveInventory[i].Replace("(Clone)", ""), typeof(GameObject)) as GameObject;
                     inventory.isFull[i] = true;
                     Instantiate(slotButton, inventory.slots[i].transform.GetChild(0).transform);
                 }
             }
         }
+    }
+
+    private void PlayFootstep()
+    {
+        SFXManager.Instance.PlaySFX("Footstep", transform.position);
     }
 }
