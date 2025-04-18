@@ -33,7 +33,7 @@ public class UIItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHa
     public void OnEndDrag(PointerEventData eventData)
     {
         transform.localPosition = Vector3.zero;
+        _canvasGroup.blocksRaycasts = true;
         inventory.isFull[index - 1] = false;
-        _canvasGroup.blocksRaycasts = true;        
     }
 }

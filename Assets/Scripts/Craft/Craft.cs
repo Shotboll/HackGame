@@ -35,6 +35,11 @@ public class Craft : MonoBehaviour
             }
         }
 
+        if(craftIng.Length == 1)
+        {
+            return;
+        }
+
         if (craftIng[0] == craftIng[1])
         {
             return;
