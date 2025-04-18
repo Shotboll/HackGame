@@ -28,7 +28,7 @@ public class MainMenuObj : MonoBehaviour
     {
         Transform parent = transform.parent;
 
-        startComics = parent.transform.parent.Find("startComics").gameObject;
+        startComics = parent.transform.parent.transform.parent.Find("startComics").gameObject;
 
         File.Delete(Application.persistentDataPath + "/player.save");
         startComics.SetActive(true);
