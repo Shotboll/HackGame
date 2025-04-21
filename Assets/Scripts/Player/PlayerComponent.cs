@@ -53,6 +53,17 @@ public class PlayerComponent : MonoBehaviour
             animEnd.SetBool("endButOpen", true);
         }
 
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            speed = 1f;
+            anim.SetBool("isRun", true);
+        }
+        else if(Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            speed = 0.55f;
+            anim.SetBool("isRun", false);
+        }
+
         // 1. Определяем движение
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
