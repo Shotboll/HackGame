@@ -1,59 +1,80 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
-    public int score = 0;
-    public Text scoreText;
-    public GameObject ratPrefab;  // Префаб крысы
-    private bool gameOver = false;
+    public GameObject mousePrefab;
+    public float baseSpeed = 3f;
+    public float speedMultiplier = 1.2f;
+    public TextMeshProUGUI scoreText;
 
-    void Awake()
+    private int currentScore;
+    private bool gameRunning = true;
+    private float currentSpeed;
+    private bool canSpawn = true; // Флаг для контроля спавна
+
+    public Collider2D boundaryCollider;
+
+    void Start()
     {
-        if (Instance == null)
+        currentSpeed = baseSpeed;
+        SpawnMouse();
+    }
+
+    void SpawnMouse()
+    {
+        Bounds bounds = boundaryCollider.bounds;
+        Vector2 spawnPos = new Vector2(
+            Random.Range(bounds.min.x + 0.5f, bounds.max.x - 0.5f),
+            Random.Range(bounds.min.y + 0.5f, bounds.max.y - 0.5f)
+        );
+
+        GameObject mouse = Instantiate(mousePrefab, spawnPos, Quaternion.identity);
+        mouse.GetComponent<MouseController>().Initialize(
+            this,
+            currentSpeed,
+            boundaryCollider.bounds
+        );
+    }
+
+    public void HandleMouseClick()
+    {
+        currentScore++;
+        currentSpeed *= speedMultiplier;
+        UpdateScoreDisplay();
+
+        if (currentScore >= 10)
         {
-            Instance = this;
+            EndGame();
+        }
+        else
+        {
+            StartCoroutine(SpawnWithDelay()); // Запускаем корутину после клика
         }
     }
 
-    void Update()
+    IEnumerator SpawnWithDelay()
     {
-        // Если игрок набрал 10 очков, завершаем игру
-        if (score >= 10 && !gameOver)
-        {
-            gameOver = true;
-            Debug.Log("Игра завершена! Ты победил!");
-            // Здесь можно добавить логику для завершения игры (например, показать экран победы или перезапуск)
-        }
+        canSpawn = false;
+        yield return new WaitForSeconds(3f);
+        SpawnMouse();
+        canSpawn = true;
     }
 
-    public void AddScore()
+    void UpdateScoreDisplay()
     {
-        score++;
         if (scoreText != null)
         {
-            scoreText.text = "Очки: " + score;
+            scoreText.text = $"Score: {currentScore}/10";
         }
-        Debug.Log("Очки увеличены! Теперь: " + score);
     }
 
-    // Метод для создания новой крысы
-    public void SpawnRat(float speed)
+    void EndGame()
     {
-        // Задаем случайную позицию на карте
-        float x = Random.Range(-7f, 7f);
-        float y = Random.Range(-4f, 4f);
-        Vector2 spawnPosition = new Vector2(x, y);
-
-        // Создаем крысу
-        GameObject newRat = Instantiate(ratPrefab, spawnPosition, Quaternion.identity);
-
-        // Получаем компонент RatMovement и увеличиваем скорость
-        RatMovement ratMovement = newRat.GetComponent<RatMovement>();
-        if (ratMovement != null)
-        {
-            ratMovement.speed = speed;  // Устанавливаем новую скорость
-        }
+        gameRunning = false;
+        StopAllCoroutines();
+        Debug.Log("Game Over!");
     }
 }
