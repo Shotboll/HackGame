@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: efee4e3ea39eceb468e6fefe1e4ed7f1
+guid: 36fc44c06ef878f4caba092462455971
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5071887886933202301
-    second: "\u0411\u0435\u0437 \u043D\u0430\u0437\u0432\u0430\u043D\u0438\u044F_0"
+      213: 3959609104418192449
+    second: "\u0418\u0413\u0420\u0410\u0422\u042C22_0"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -96,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\u0411\u0435\u0437 \u043D\u0430\u0437\u0432\u0430\u043D\u0438\u044F_0"
+      name: "\u0418\u0413\u0420\u0410\u0422\u042C22_0"
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1920
-        height: 1080
+        x: 115
+        y: 53
+        width: 90
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 38a6dbeb6d80d99b0800000000000000
-      internalID: -5071887886933202301
+      spriteID: 14cbf36608b53f630800000000000000
+      internalID: 3959609104418192449
       vertices: []
       indices: 
       edges: []
@@ -148,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "\u0411\u0435\u0437 \u043D\u0430\u0437\u0432\u0430\u043D\u0438\u044F_0": -5071887886933202301
+      "\u0418\u0413\u0420\u0410\u0422\u042C22_0": 3959609104418192449
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

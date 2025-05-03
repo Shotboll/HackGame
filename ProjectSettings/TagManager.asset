@@ -10,6 +10,7 @@ TagManager:
   - Potions
   - Game2
   - StartComics
+  - Game3
   layers:
   - Default
   - TransparentFX
